@@ -1,0 +1,12 @@
+<h1>All restaurants</h1>
+<ul>
+<% @restaurants.each do |r| %>
+  <li><%= r.name %> - <%= r.address %>: <%= r.category %></li>
+<% end %>
+</ul>
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content, label: "Review Content", required: true %>
+  <%= f.input :rating, label: "Rating", required: true %>
+  <%= f.button :submit, "Submit Review" %>
+<% end %>
